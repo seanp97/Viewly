@@ -11,16 +11,11 @@ class Viewly {
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                console.log('Element is in the viewport');
-
-                if(callback) {
-                    callback();
+                if (entry.isIntersecting) {
+                    if(callback) {
+                        callback();
+                    }
                 }
-
-              } else {
-                console.log('Element is not in the viewport');
-              }
             });
           }, {
             threshold: this.percentage / 100
